@@ -1,4 +1,4 @@
-name: Terraform Dev CI/CD
+name: Terraform Dev CI/CD Pipeline
 
 on:
   push:
@@ -7,6 +7,7 @@ on:
     paths:
       - "modules/**"
       - "environments/dev/**"
+      - "README.md" # Added to ensure workflow triggers on README updates
 
 jobs:
   terraform:
@@ -39,3 +40,4 @@ jobs:
       - name: Terraform Apply (Dev)
         working-directory: environments/dev
         run: terraform apply -auto-approve -input=false -var "environment=dev" -var "region=${{ secrets.AWS_REGION }}"
+
