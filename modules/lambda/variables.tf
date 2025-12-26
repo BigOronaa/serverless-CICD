@@ -6,16 +6,15 @@ variable "function_name" {
 variable "runtime" {
   description = "Lambda runtime"
   type        = string
-  default     = "python3.9"
 }
 
 variable "handler" {
-  description = "Lambda function handler"
+  description = "Lambda handler"
   type        = string
 }
 
 variable "filename" {
-  description = "Path to the Lambda deployment package (zip file)"
+  description = "Path to the Lambda zip file"
   type        = string
 }
 
@@ -25,7 +24,7 @@ variable "role_arn" {
 }
 
 variable "environment_variables" {
-  description = "Environment variables for the Lambda function"
+  description = "Environment variables for Lambda"
   type        = map(string)
   default     = {}
 }

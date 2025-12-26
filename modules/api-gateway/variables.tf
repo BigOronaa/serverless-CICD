@@ -4,12 +4,18 @@ variable "api_name" {
 }
 
 variable "lambda_invoke_arn" {
-  description = "Lambda invoke ARN"
+  description = "Lambda invoke ARN (used for integration)"
+  type        = string
+}
+
+# ✅ This variable must exist for Lambda permission
+variable "lambda_function_name" {
+  description = "Lambda function name (used for permissions)"
   type        = string
 }
 
 variable "route_key" {
-  description = "HTTP method and route (e.g., GET /hello)"
+  description = "HTTP route (e.g. GET /hello)"
   type        = string
   default     = "GET /"
 }
